@@ -1,0 +1,10 @@
+PHP Lua Install Script
+
+Requirements:
+* Lib Readline Dev
+* PHP Development files
+
+How to use:
+* ~/php-lua-install-script/$ sudo install.sh
+
+Tested on ubuntu
