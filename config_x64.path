@@ -1,0 +1,21 @@
+*** config.m4	2013-06-26 10:23:10.139973845 +0800
+--- config_x64.m4	2013-06-26 11:50:18.772203193 +0800
+***************
+*** 7,14 ****
+      LUA_DIR=$PHP_LUA
+    else
+      AC_MSG_CHECKING(for lua in default path)
+!     for i in /usr/local /usr; do
+!       if test -r $i/include/lua/5.2.1/lua.h; then
+          LUA_DIR=$i
+          AC_MSG_RESULT(found in $i)
+          break
+--- 7,14 ----
+      LUA_DIR=$PHP_LUA
+    else
+      AC_MSG_CHECKING(for lua in default path)
+!     for i in /usr/local /usr/include/lua/5.2.1 /tmp/phplua/lua-5.2.1/src; do
+!       if test -r $i/lua.h; then
+          LUA_DIR=$i
+          AC_MSG_RESULT(found in $i)
+          break
