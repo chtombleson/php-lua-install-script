@@ -30,7 +30,11 @@ For now(in Ubuntu Server 13.04) is:
 * make
 
 How to use:
-* clone repository to /tmp && cd /tmp/php-lua-install-script
-* $ sudo ./install.sh
+```bash
+ $ cd /tmp
+ $ git clone https://github.com/chtombleson/php-lua-install-script.git 
+ $ cd php-lua-install-script
+ $ sudo ./install_x64.sh
+```
 
 Tested on a freshly installed Ubuntu Server 13.04 64 bit.
