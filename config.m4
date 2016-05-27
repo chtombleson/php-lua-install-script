@@ -7,8 +7,8 @@ if test "$PHP_LUA" != "no"; then
     LUA_DIR=$PHP_LUA
   else
     AC_MSG_CHECKING(for lua in default path)
-    for i in /usr/local /usr; do
-      if test -r $i/include/lua/5.2.1/lua.h; then
+    for i in /usr/local /usr/include/lua/5.2.1 /tmp/phplua/lua-5.2.1/src; do
+      if test -r $i/lua.h; then
         LUA_DIR=$i
         AC_MSG_RESULT(found in $i)
         break

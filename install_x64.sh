@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # checking required packages
-for PKG in  php5-dev libncurses5-dev php-pear libreadline-dev make; do
+for PKG in  php7.0-dev libncurses5-dev php-pear libreadline-dev make; do
 dpkg -s "$PKG" >/dev/null 2>&1 && {
     echo "$PKG already installed. Skipping..."
 } || {
     echo "$PKG is not installed. Try to install..."
-    apt-get -y install $PKG 
+    apt-get -y install $PKG
 }
 done;
 
@@ -15,7 +15,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 LUA_DOWNLOAD_URL=http://www.lua.org/ftp/
 LUA_VERSION=5.2.1
 LUA_GET_URL=${LUA_DOWNLOAD_URL}lua-${LUA_VERSION}.tar.gz
-PHP_LUA_DOWNLOAD_URL=http://pecl.php.net/get/lua-1.0.0.tgz
+PHP_LUA_DOWNLOAD_URL=http://pecl.php.net/get/lua-2.0.1.tgz
 PHP_VERSION=$(grep '#define PHP_API_VERSION' /usr/include/php5/main/php.h|sed 's/#define PHP_API_VERSION//' | sed 's/\s//');
 
 
@@ -32,7 +32,7 @@ wget $PHP_LUA_DOWNLOAD_URL
 
 echo "======= Extracting source ======="
 tar -xf lua-${LUA_VERSION}.tar.gz
-tar -xf lua-1.0.0.tgz
+tar -xf lua-2.0.1.tgz
 
 echo "======= Building Lua ======="
 cd /tmp/phplua/lua-${LUA_VERSION}
@@ -43,14 +43,14 @@ make linux test
 make linux install
 
 echo "======= Building PHP Lua ======="
-cd /tmp/phplua/lua-1.0.0
+cd /tmp/phplua/lua-2.0.1
 echo "Patching config for building in 64bit system"
 patch -p1 ${SCRIPT_DIR}/config.m4 -i ${SCRIPT_DIR}/config_x64.path
-cp ${SCRIPT_DIR}/config.m4 /tmp/phplua/lua-1.0.0/
+cp ${SCRIPT_DIR}/config.m4 /tmp/phplua/lua-2.0.1/
 phpize
 ./configure
 # patching php-lua by adding include path for lua sources
-sed -i "s/INCLUDES =/INCLUDES = -I\/tmp\/phplua\/lua-${LUA_VERSION}\/src/g" /tmp/phplua/lua-1.0.0/Makefile
+sed -i "s/INCLUDES =/INCLUDES = -I\/tmp\/phplua\/lua-${LUA_VERSION}\/src/g" /tmp/phplua/lua-2.0.0/Makefile
 make
 make install
 
