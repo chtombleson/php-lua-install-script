@@ -5,7 +5,7 @@ php:
   - '7.0'
 
 install:
-  - apt-get install make build-essential
+  - sudo apt-get install make build-essential
 
-script: ./install_x64.sh
+script: sudo ./install_x64.sh
 
