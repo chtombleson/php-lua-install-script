@@ -1,0 +1,11 @@
+sudo: required
+
+language: php
+php:
+  - '7.0'
+
+install:
+  - apt-get install make build-essential
+
+script: ./install_x64.sh
+
