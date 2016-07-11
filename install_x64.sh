@@ -50,7 +50,7 @@ cp ${SCRIPT_DIR}/config.m4 /tmp/phplua/lua-2.0.2/
 phpize
 ./configure
 # patching php-lua by adding include path for lua sources
-sed -i "s/INCLUDES =/INCLUDES = -I\/tmp\/phplua\/lua-${LUA_VERSION}\/src/g" /tmp/phplua/lua-2.0.0/Makefile
+sed -i "s/INCLUDES =/INCLUDES = -I\/tmp\/phplua\/lua-${LUA_VERSION}\/src/g" /tmp/phplua/lua-2.0.2/Makefile
 make
 make install
 
