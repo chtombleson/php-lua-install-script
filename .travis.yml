@@ -4,8 +4,8 @@ dist: trusty
 group: edge
 
 before_install:
-  - 'sudo -u root echo "deb http://ppa.launchpad.net/ondrej/php/ubuntu trusty main
-  deb-src http://ppa.launchpad.net/ondrej/php/ubuntu trusty main" > /etc/apt/sources.list.d/php7.list'
+  - 'echo "deb http://ppa.launchpad.net/ondrej/php/ubuntu trusty main
+  deb-src http://ppa.launchpad.net/ondrej/php/ubuntu trusty main" | sudo tee /etc/apt/sources.list.d/php7.list'
   - sudo apt-get update
 
 install:
