@@ -1,11 +1,16 @@
-sudo: required
-
 language: php
-php:
-  - '7.0'
+sudo: required
+dist: trusty
+group: edge
+
+before_install:
+  - 'sudo echo "deb http://ppa.launchpad.net/ondrej/php/ubuntu trusty main
+  deb-src http://ppa.launchpad.net/ondrej/php/ubuntu trusty main" > /etc/apt/sources.list.d/php7.list'
+  - sudo apt-get update
 
 install:
   - sudo apt-get install make build-essential
 
+before_script: git reset --hard
 script: sudo ./install_x64.sh
 
