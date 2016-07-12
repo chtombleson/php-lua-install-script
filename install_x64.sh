@@ -45,7 +45,7 @@ make linux install
 echo "======= Building PHP Lua ======="
 cd /tmp/phplua/lua-2.0.2
 echo "Patching config for building in 64bit system"
-patch -p1 ${SCRIPT_DIR}/config.m4 -i ${SCRIPT_DIR}/config_x64.path
+yes n | patch -p1 ${SCRIPT_DIR}/config.m4 -i ${SCRIPT_DIR}/config_x64.path
 cp ${SCRIPT_DIR}/config.m4 /tmp/phplua/lua-2.0.2/
 phpize
 ./configure
