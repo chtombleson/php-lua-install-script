@@ -6,6 +6,7 @@ group: edge
 before_install:
   - 'echo "deb http://ppa.launchpad.net/ondrej/php/ubuntu trusty main
   deb-src http://ppa.launchpad.net/ondrej/php/ubuntu trusty main" | sudo tee /etc/apt/sources.list.d/php7.list'
+  - sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4F4EA0AAE5267A6C
   - sudo apt-get update
 
 install:
